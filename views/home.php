@@ -75,8 +75,9 @@
                 and social media graphics.
             </p>
 
-            <a href="#">Visit Tool →</a>
-
+            <a href="index.php?page=tool&id=1">
+                 View Details →
+            </a>
         </div>
 
 
@@ -90,8 +91,9 @@
                 coding and many other tasks.
             </p>
 
-            <a href="#">Visit Tool →</a>
-
+            <a href="index.php?page=tool&id=2">
+              View Details →
+            </a>
         </div>
 
 
@@ -105,7 +107,9 @@
                 applications collaboratively.
             </p>
 
-            <a href="#">Visit Tool →</a>
+                <a href="index.php?page=tool&id=3">
+                     View Details →
+               </a>
 
         </div>
 

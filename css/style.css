@@ -145,6 +145,7 @@ body {
     transition: 0.2s;
 }
 
+
 .tool-card h3 {
     font-size: 21px;
     margin-bottom: 12px;
@@ -163,7 +164,8 @@ body {
 }
 
 .tool-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 /*tool section , this is for smartphone view, When the screen becomes smaller than 768px, the cards align vertically */
@@ -193,6 +195,23 @@ body {
     font-weight: bold;
 }
 
+.tool-details {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px 20px;
+}
+
+.tool-details h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.tool-details p {
+    color: #666;
+    line-height: 1.7;
+    margin: 25px 0;
+    font-size: 17px;
+}
 
 
 /* Footer */
