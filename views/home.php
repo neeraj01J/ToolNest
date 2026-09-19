@@ -58,60 +58,35 @@
 </section>
         
         <!--Tools Section -->
-      <section class="tools-section">
+     <section class="tools-section">
 
     <h2>Explore Tools</h2>
 
     <div class="tool-grid">
 
-        <!-- Tool Card -->
-        <div class="tool-card">
+        <?php foreach ($tools as $tool): ?>
 
-            <h3>Canva</h3>    
-            <span class="tool-category">Design</span>
+            <div class="tool-card">
 
-            <p>
-                Create beautiful designs, presentations
-                and social media graphics.
-            </p>
+                <h3>
+                    <?php echo $tool['name']; ?>
+                </h3>
 
-            <a href="index.php?page=tool&id=1">
-                 View Details →
-            </a>
-        </div>
+                <span class="tool-category">
+                    <?php echo $tool['category']; ?>
+                </span>
 
+                <p>
+                    <?php echo $tool['description']; ?>
+                </p>
 
-        <!-- Tool Card -->
-        <div class="tool-card">
+                <a href="index.php?page=tool&id=<?php echo $tool['id']; ?>">
+                    View Details →
+                </a>
 
-            <h3>ChatGPT</h3>
-            <span class="tool-category">AI</span>
-            <p>
-                AI assistant for writing, learning,
-                coding and many other tasks.
-            </p>
+            </div>
 
-            <a href="index.php?page=tool&id=2">
-              View Details →
-            </a>
-        </div>
-
-
-        <!-- Tool Card -->
-        <div class="tool-card">
-
-            <h3>Figma</h3>
-            <span class="tool-category">Design</span>   
-            <p>
-                Design and prototype websites and
-                applications collaboratively.
-            </p>
-
-                <a href="index.php?page=tool&id=3">
-                     View Details →
-               </a>
-
-        </div>
+        <?php endforeach; ?>
 
     </div>
 
