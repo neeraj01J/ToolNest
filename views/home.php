@@ -67,7 +67,8 @@
         <!-- Tool Card -->
         <div class="tool-card">
 
-            <h3>Canva</h3>
+            <h3>Canva</h3>    
+            <span class="tool-category">Design</span>
 
             <p>
                 Create beautiful designs, presentations
@@ -83,7 +84,7 @@
         <div class="tool-card">
 
             <h3>ChatGPT</h3>
-
+            <span class="tool-category">AI</span>
             <p>
                 AI assistant for writing, learning,
                 coding and many other tasks.
@@ -98,7 +99,7 @@
         <div class="tool-card">
 
             <h3>Figma</h3>
-
+            <span class="tool-category">Design</span>   
             <p>
                 Design and prototype websites and
                 applications collaboratively.
