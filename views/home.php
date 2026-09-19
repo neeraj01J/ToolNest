@@ -58,33 +58,59 @@
 </section>
         
         <!--Tools Section -->
-       <section class="tools-section">
-        <h2>Explore Tools</h2>
-        <div class="tools-grid">
+      <section class="tools-section">
 
-            <div class="tool-card">
-               <h3>Canva</h3>
-               <p>Create beautiful designs, presentations
-                    and social media graphics.
-                </p>
-                    <a href="#">Visit Tool →</a>
-            </div>
+    <h2>Explore Tools</h2>
 
+    <div class="tool-grid">
 
-            <div class="tool-card">
-                <h3>Figma</h3>
+        <!-- Tool Card -->
+        <div class="tool-card">
 
-                <p>
-                    Design and prototype websites and
-                    applications collaboratively.
-                </p>
+            <h3>Canva</h3>
 
-                <a href="#">Visit Tool →</a>
-            </div>
+            <p>
+                Create beautiful designs, presentations
+                and social media graphics.
+            </p>
+
+            <a href="#">Visit Tool →</a>
 
         </div>
 
-    </section>
+
+        <!-- Tool Card -->
+        <div class="tool-card">
+
+            <h3>ChatGPT</h3>
+
+            <p>
+                AI assistant for writing, learning,
+                coding and many other tasks.
+            </p>
+
+            <a href="#">Visit Tool →</a>
+
+        </div>
+
+
+        <!-- Tool Card -->
+        <div class="tool-card">
+
+            <h3>Figma</h3>
+
+            <p>
+                Design and prototype websites and
+                applications collaboratively.
+            </p>
+
+            <a href="#">Visit Tool →</a>
+
+        </div>
+
+    </div>
+
+</section>
 
      <!-- Footer -->
     <footer>
