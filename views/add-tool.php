@@ -6,7 +6,7 @@
 
     <title>Add a Tool - ToolNest</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/add-tool.css">
 </head>
 

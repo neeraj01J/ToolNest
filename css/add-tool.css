@@ -1,7 +1,7 @@
 
-/*---------
-ADD TOOL.PHP PAGE CSS
----------*/
+/* -------------------------
+   ADD TOOL PAGE
+   ------------------------- */
 
 .add-tool-container {
     max-width: 700px;
@@ -33,6 +33,7 @@ ADD TOOL.PHP PAGE CSS
 .form-group textarea {
     width: 100%;
     box-sizing: border-box;
+
     padding: 13px;
 
     border: 1px solid #d1d5db;

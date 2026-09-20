@@ -3,9 +3,8 @@
 
 <head>
 
-    <title>Tool Details - ToolNest</title>
-
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/ToolNest/css/global.css">
+    <link rel="stylesheet" href="/ToolNest/css/tool.css">
 </head>
 
 <body>
@@ -44,24 +43,24 @@
         <?php if ($tool): ?>
 
             <h1>
-                <?php echo $tool['name']; ?>
+               <?php echo htmlspecialchars($tool['name'], ENT_QUOTES, 'UTF-8'); ?>
             </h1>
 
             <span class="tool-category">
-                <?php echo $tool['category']; ?>
+                <?php echo htmlspecialchars($tool['category'], ENT_QUOTES, 'UTF-8'); ?>
             </span>
 
             <p>
-                <?php echo $tool['description']; ?>
-            </p>
+          <?php echo nl2br(htmlspecialchars($tool['description'], ENT_QUOTES, 'UTF-8')); ?>            </p>
 
-            <a
-                href="<?php echo $tool['url']; ?>"
-                target="_blank"
-                class="share-button"
-            >
-                Open Tool →
-            </a>
+           <a
+    href="<?php echo htmlspecialchars($tool['url'], ENT_QUOTES, 'UTF-8'); ?>"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="share-button"
+>
+    Visit Website →
+     </a>
 
         <?php else: ?>
 
@@ -77,9 +76,9 @@
 
         <br><br>
 
-        <a href="index.php">
-            ← Back to Tools
-        </a>
+       <a href="index.php" class="back-to-tools">
+    ← Back to Tools
+      </a>
 
     </main>
 

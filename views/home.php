@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToolNest - Digital Tool Directory</title>
- <link rel="stylesheet" href="/ToolNest/css/style.css">
+ <link rel="stylesheet" href="/ToolNest/css/global.css">
+<link rel="stylesheet" href="/ToolNest/css/home.css">
 </head>
 
 <body>
@@ -24,6 +25,14 @@
     </div>
 
 </nav>
+
+<?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+
+    <div class="success-message">
+        ✅ Tool added successfully!
+    </div>
+
+<?php endif; ?>
 
         <!-- Hero Section -->
 
