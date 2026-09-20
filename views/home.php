@@ -49,8 +49,8 @@
 
         </div>
 
-        <a href="#" class="share-button">
-            + Share a Tool
+        <a href="index.php?page=add-tool" class="share-button">
+        + Share a Tool
         </a>
 
     </div>

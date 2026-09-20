@@ -1,0 +1,72 @@
+
+/*---------
+ADD TOOL.PHP PAGE CSS
+---------*/
+
+.add-tool-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px 20px;
+}
+
+.add-tool-container h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.form-intro {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.submit-button {
+    padding: 13px 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #111827;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #374151;
+}
