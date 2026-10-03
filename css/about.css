@@ -1,0 +1,537 @@
+/* =========================
+   ABOUT PAGE
+   ========================= */
+
+.about-page {
+    width: 100%;
+}
+
+
+/* =========================
+   ABOUT HERO
+   ========================= */
+
+.about-hero {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 90px 20px 75px;
+
+    text-align: center;
+}
+
+
+.about-label,
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #2563eb;
+}
+
+
+.about-hero h1 {
+    margin: 0 auto 20px;
+
+    font-size: 52px;
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+
+    color: #111827;
+}
+
+
+.about-hero p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   COMMON SECTION
+   ========================= */
+
+.about-section,
+.features-section,
+.how-section,
+.technology-section {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 75px 20px;
+}
+
+
+/* =========================
+   ABOUT CONTENT
+   ========================= */
+
+.about-content {
+    max-width: 800px;
+}
+
+
+.about-content h2,
+.section-heading h2 {
+    margin: 0 0 18px;
+
+    font-size: 34px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+
+    color: #111827;
+}
+
+
+.about-content p {
+    margin: 0 0 16px;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   SECTION HEADING
+   ========================= */
+
+.section-heading {
+    margin-bottom: 40px;
+}
+
+
+.section-heading p {
+    max-width: 650px;
+
+    margin-top: 12px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   FEATURE GRID
+   ========================= */
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.feature-card {
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #d1d5db;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   FEATURE ICON
+   ========================= */
+
+.feature-icon {
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+
+    font-size: 22px;
+}
+
+
+.feature-card h3 {
+    margin: 0 0 10px;
+
+    font-size: 19px;
+
+    color: #111827;
+}
+
+
+.feature-card p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   HOW IT WORKS
+   ========================= */
+
+.steps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+.step {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    background: #f9fafb;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+}
+
+
+.step-number {
+    flex-shrink: 0;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+
+.step h3 {
+    margin: 0 0 7px;
+
+    font-size: 18px;
+
+    color: #111827;
+}
+
+
+.step p {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   TECHNOLOGY SECTION
+   ========================= */
+
+.technology-section {
+    text-align: center;
+}
+
+
+.technology-section .section-heading {
+    margin-bottom: 30px;
+}
+
+
+.technology-section .section-heading p {
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+
+.technology-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+
+/* =========================
+   CALL TO ACTION
+   ========================= */
+
+.about-cta {
+    max-width: 900px;
+
+    margin: 40px auto 80px;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    background: #f9fafb;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+}
+
+
+.about-cta h2 {
+    margin: 0 0 12px;
+
+    font-size: 32px;
+
+    color: #111827;
+}
+
+
+.about-cta p {
+    margin: 0 0 25px;
+
+    color: #6b7280;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   SHARE BUTTON
+   ========================= */
+
+.about-cta .share-button {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.about-cta .share-button:hover {
+    background: #374151;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .about-hero h1 {
+        font-size: 44px;
+    }
+
+}
+
+
+/* =========================
+   SMALL TABLETS
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .about-hero {
+        padding: 65px 20px 55px;
+    }
+
+
+    .about-hero h1 {
+        font-size: 38px;
+    }
+
+
+    .about-hero p {
+        font-size: 16px;
+    }
+
+
+    .about-section,
+    .features-section,
+    .how-section,
+    .technology-section {
+
+        padding: 55px 20px;
+    }
+
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+
+    .about-content h2,
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE PHONES
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .about-hero {
+        padding: 50px 16px 45px;
+    }
+
+
+    .about-hero h1 {
+        font-size: 32px;
+
+        letter-spacing: -0.8px;
+    }
+
+
+    .about-hero p {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+
+    .about-section,
+    .features-section,
+    .how-section,
+    .technology-section {
+
+        padding: 45px 16px;
+    }
+
+
+    .feature-card {
+        padding: 22px;
+    }
+
+
+    .step {
+        padding: 20px;
+
+        gap: 14px;
+    }
+
+
+    .technology-list {
+        gap: 8px;
+    }
+
+
+    .technology-list span {
+        padding: 8px 14px;
+
+        font-size: 13px;
+    }
+
+
+    .about-cta {
+        margin:
+            20px 16px
+            50px;
+
+        padding: 40px 20px;
+    }
+
+
+    .about-cta h2 {
+        font-size: 27px;
+    }
+
+}

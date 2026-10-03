@@ -53,7 +53,7 @@
         </div>
 
 
-        <!-- NAVIGATION LINKS -->
+        <!-- NAVIGATION -->
 
         <div class="nav-links">
 
@@ -73,7 +73,7 @@
 
             <!-- ABOUT -->
 
-            <a href="#">
+            <a href="index.php?page=about">
                 About
             </a>
 
@@ -103,14 +103,10 @@
             id="successToast"
         >
 
-            <!-- Toast Icon -->
-
             <div class="toast-icon">
                 ✓
             </div>
 
-
-            <!-- Toast Content -->
 
             <div class="toast-content">
 
@@ -125,8 +121,6 @@
             </div>
 
 
-            <!-- Close Button -->
-
             <button
                 type="button"
                 class="toast-close"
@@ -136,8 +130,6 @@
                 ×
             </button>
 
-
-            <!-- Progress Bar -->
 
             <div class="toast-progress"></div>
 
@@ -154,15 +146,10 @@
 
         <div class="hero-content">
 
-
-            <!-- HERO TITLE -->
-
             <h1>
                 Discover Useful Digital Tools
             </h1>
 
-
-            <!-- HERO DESCRIPTION -->
 
             <p>
                 Find, explore and share useful digital tools
@@ -180,16 +167,12 @@
                 class="search-box"
             >
 
-                <!-- Tell controller this is a search -->
-
                 <input
                     type="hidden"
                     name="page"
                     value="search"
                 >
 
-
-                <!-- Search Input -->
 
                 <input
                     type="text"
@@ -207,8 +190,6 @@
                     ?>"
                 >
 
-
-                <!-- Search Button -->
 
                 <button type="submit">
                     Search
@@ -297,13 +278,10 @@
 
 
         <!-- =========================
-             CATEGORY DROPDOWN
+             CATEGORY FILTER
              ========================= -->
 
         <div class="category-filter">
-
-
-            <!-- CATEGORY BUTTON -->
 
             <button
                 type="button"
@@ -320,13 +298,10 @@
             </button>
 
 
-            <!-- CATEGORY MENU -->
-
             <div
                 class="category-menu"
                 id="categoryMenu"
             >
-
 
                 <!-- ALL TOOLS -->
 
@@ -368,7 +343,6 @@
 
                 <?php endforeach; ?>
 
-
             </div>
 
         </div>
@@ -381,16 +355,12 @@
         <div class="tool-grid">
 
 
-            <!-- =========================
-                 NO TOOLS AVAILABLE
-                 ========================= -->
-
             <?php if (
                 empty($tools)
             ): ?>
 
 
-                <!-- SEARCH RESULT EMPTY -->
+                <!-- SEARCH EMPTY -->
 
                 <?php if (
                     isset($isSearch)
@@ -412,7 +382,7 @@
                     </p>
 
 
-                <!-- CATEGORY RESULT EMPTY -->
+                <!-- CATEGORY EMPTY -->
 
                 <?php elseif (
                     isset($isCategoryFilter)
@@ -447,25 +417,20 @@
                 <?php endif; ?>
 
 
-            <!-- =========================
-                 DISPLAY TOOLS
-                 ========================= -->
-
             <?php else: ?>
 
+
+                <!-- =========================
+                     TOOL CARDS
+                     ========================= -->
 
                 <?php foreach (
                     $tools
                     as $tool
                 ): ?>
 
-
-                    <!-- TOOL CARD -->
-
                     <div class="tool-card">
 
-
-                        <!-- TOOL NAME -->
 
                         <h3>
 
@@ -482,8 +447,6 @@
                         </h3>
 
 
-                        <!-- TOOL CATEGORY -->
-
                         <span class="tool-category">
 
                             <?php
@@ -498,8 +461,6 @@
 
                         </span>
 
-
-                        <!-- TOOL DESCRIPTION -->
 
                         <p>
 
@@ -516,8 +477,6 @@
                         </p>
 
 
-                        <!-- VIEW DETAILS -->
-
                         <a
                             href="index.php?page=tool&id=<?php
                                 echo $tool['id'];
@@ -529,12 +488,10 @@
 
                     </div>
 
-
                 <?php endforeach; ?>
 
 
             <?php endif; ?>
-
 
         </div>
 
