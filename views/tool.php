@@ -54,13 +54,12 @@
           <?php echo nl2br(htmlspecialchars($tool['description'], ENT_QUOTES, 'UTF-8')); ?>            </p>
 
            <a
-    href="<?php echo htmlspecialchars($tool['url'], ENT_QUOTES, 'UTF-8'); ?>"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="share-button"
->
-    Visit Website →
-     </a>
+              href="<?php echo htmlspecialchars($tool['url'], ENT_QUOTES, 'UTF-8'); ?>"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="share-button">
+           Visit Website →
+         </a>
 
         <?php else: ?>
 
