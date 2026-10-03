@@ -45,6 +45,23 @@ class Tool
 
 
     /* =========================
+       GET CATEGORIES
+       ========================= */
+
+    public function getCategories()
+    {
+        $sql = "SELECT DISTINCT category
+                FROM tools
+                WHERE category != ''
+                ORDER BY category ASC";
+
+        $result = $this->conn->query($sql);
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+    /* =========================
        ADD TOOL
        ========================= */
 
@@ -88,6 +105,31 @@ class Tool
             $searchKeyword,
             $searchKeyword,
             $searchKeyword
+        );
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+    /* =========================
+       FILTER TOOLS BY CATEGORY
+       ========================= */
+
+    public function getToolsByCategory($category)
+    {
+        $sql = "SELECT * FROM tools
+                WHERE category = ?
+                ORDER BY id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bind_param(
+            "s",
+            $category
         );
 
         $stmt->execute();

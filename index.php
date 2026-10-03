@@ -16,6 +16,10 @@ if (isset($_GET['page']) && $_GET['page'] === 'tool') {
 
     $controller->search();
 
+} elseif (isset($_GET['page']) && $_GET['page'] === 'category') {
+
+    $controller->category();
+
 } else {
 
     $controller->home();

@@ -170,6 +170,13 @@
                 "<?php echo htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8'); ?>"
             </h2>
 
+        <?php elseif (isset($isCategoryFilter) && $isCategoryFilter): ?>
+
+            <h2>
+                <?php echo htmlspecialchars($category, ENT_QUOTES, 'UTF-8'); ?>
+                Tools
+            </h2>
+
         <?php else: ?>
 
             <h2>
@@ -180,6 +187,61 @@
 
 
         <!-- =========================
+             CATEGORY DROPDOWN
+             ========================= -->
+
+        <div class="category-filter">
+
+            <button
+                type="button"
+                class="category-button"
+                id="categoryButton"
+            >
+                Categories
+                <span class="category-arrow">▼</span>
+            </button>
+
+
+            <div
+                class="category-menu"
+                id="categoryMenu"
+            >
+
+                <!-- All Tools -->
+
+                <a
+                    href="index.php"
+                    class="category-menu-item"
+                >
+                    All Tools
+                </a>
+
+
+                <!-- Database Categories -->
+
+                <?php foreach ($categories as $categoryItem): ?>
+
+                    <a
+                        href="index.php?page=category&category=<?php echo urlencode($categoryItem['category']); ?>"
+                        class="category-menu-item"
+                    >
+                        <?php
+                        echo htmlspecialchars(
+                            $categoryItem['category'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        );
+                        ?>
+                    </a>
+
+                <?php endforeach; ?>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
              TOOL GRID
              ========================= -->
 
@@ -187,10 +249,28 @@
 
             <?php if (empty($tools)): ?>
 
-                <p>
-                    No tools found for
-                    "<?php echo htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8'); ?>"
-                </p>
+                <?php if (isset($isSearch) && $isSearch): ?>
+
+                    <p>
+                        No tools found for
+                        "<?php echo htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8'); ?>"
+                    </p>
+
+                <?php elseif (isset($isCategoryFilter) && $isCategoryFilter): ?>
+
+                    <p>
+                        No tools found in the
+                        "<?php echo htmlspecialchars($category, ENT_QUOTES, 'UTF-8'); ?>"
+                        category.
+                    </p>
+
+                <?php else: ?>
+
+                    <p>
+                        No tools available.
+                    </p>
+
+                <?php endif; ?>
 
             <?php else: ?>
 

@@ -93,3 +93,107 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================
+   CATEGORY DROPDOWN
+   ========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const categoryFilter =
+            document.querySelector(
+                ".category-filter"
+            );
+
+        const categoryButton =
+            document.getElementById(
+                "categoryButton"
+            );
+
+
+        /* -------------------------
+           CHECK ELEMENTS
+           ------------------------- */
+
+        if (
+            !categoryFilter ||
+            !categoryButton
+        ) {
+            return;
+        }
+
+
+        /* -------------------------
+           TOGGLE DROPDOWN
+           ------------------------- */
+
+        categoryButton.addEventListener(
+            "click",
+            (event) => {
+
+                event.stopPropagation();
+
+                categoryFilter.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        /* -------------------------
+           CLOSE WHEN CLICKING OUTSIDE
+           ------------------------- */
+
+        document.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    !categoryFilter.contains(
+                        event.target
+                    )
+                ) {
+
+                    categoryFilter.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* -------------------------
+           CLOSE AFTER SELECTING
+           ------------------------- */
+
+        const categoryItems =
+            document.querySelectorAll(
+                ".category-menu-item"
+            );
+
+
+        categoryItems.forEach(
+            (item) => {
+
+                item.addEventListener(
+                    "click",
+                    () => {
+
+                        categoryFilter.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
