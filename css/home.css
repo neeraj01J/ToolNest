@@ -624,3 +624,420 @@
         width: auto;
     }
 }
+
+/* =========================
+   PROFILE DROPDOWN
+   ========================= */
+
+.profile-wrapper {
+    position: relative;
+}
+
+
+/* =========================
+   PROFILE BUTTON
+   ========================= */
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 6px 8px;
+
+    border-radius: 12px;
+
+    font-family: inherit;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.profile-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================
+   PROFILE AVATAR
+   ========================= */
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   PROFILE NAME
+   ========================= */
+
+.profile-name {
+    color: #222;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    max-width: 120px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   PROFILE ARROW
+   ========================= */
+
+.profile-arrow {
+    color: #777;
+
+    font-size: 12px;
+
+    transition: transform 0.2s ease;
+}
+
+
+.profile-button.active .profile-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================
+   PROFILE DROPDOWN
+   ========================= */
+
+.profile-dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 250px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    border-radius: 16px;
+
+    padding: 8px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px) scale(0.98);
+
+    transform-origin: top right;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   SHOW DROPDOWN
+   ========================= */
+
+.profile-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================
+   PROFILE INFORMATION
+   ========================= */
+
+.profile-info {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px;
+}
+
+
+/* =========================
+   DROPDOWN AVATAR
+   ========================= */
+
+.dropdown-avatar {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   USER DETAILS
+   ========================= */
+
+.profile-info strong {
+    display: block;
+
+    color: #181818;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    margin-bottom: 3px;
+}
+
+
+.profile-info span {
+    display: block;
+
+    max-width: 165px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+.dropdown-divider {
+    height: 1px;
+
+    background: #eeeeee;
+
+    margin: 4px 6px 6px;
+}
+
+
+/* =========================
+   LOGOUT
+   ========================= */
+
+.logout-link {
+    display: flex !important;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 10px;
+
+    border-radius: 10px;
+
+    color: #333 !important;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.logout-link span {
+    font-size: 16px;
+}
+
+
+.logout-link:hover {
+    background: #f5f5f5;
+
+    color: #111 !important;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .profile-name {
+        display: none;
+    }
+
+
+    .profile-button {
+        padding: 4px;
+    }
+
+
+    .profile-dropdown {
+        right: -5px;
+
+        width: 235px;
+    }
+
+}
+/* =========================
+   NAVBAR ALIGNMENT
+   ========================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   NAVIGATION LINKS
+   ========================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+
+/* =========================
+   NORMAL NAV LINKS
+   ========================= */
+
+.nav-links > a {
+    display: flex;
+    align-items: center;
+
+    height: 40px;
+
+    padding: 0;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   PROFILE SECTION
+   ========================= */
+
+.profile-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   PROFILE BUTTON
+   ========================= */
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    height: 40px;
+
+    margin: 0;
+    padding: 3px 6px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   PROFILE AVATAR
+   ========================= */
+
+.profile-avatar {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+}
+
+
+/* =========================
+   PROFILE NAME
+   ========================= */
+
+.profile-name {
+    display: flex;
+    align-items: center;
+
+    height: 34px;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   PROFILE ARROW
+   ========================= */
+
+.profile-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 34px;
+
+    line-height: 1;
+}

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once __DIR__ . '/controllers/ToolController.php';
 
 $controller = new ToolController();
@@ -63,6 +65,42 @@ if (
 ) {
 
     $controller->about();
+
+
+/* =========================
+   REGISTER PAGE
+   ========================= */
+
+} elseif (
+    isset($_GET['page'])
+    && $_GET['page'] === 'register'
+) {
+
+    $controller->register();
+
+
+/* =========================
+   LOGIN PAGE
+   ========================= */
+
+} elseif (
+    isset($_GET['page'])
+    && $_GET['page'] === 'login'
+) {
+
+    $controller->login();
+
+
+/* =========================
+   LOGOUT
+   ========================= */
+
+} elseif (
+    isset($_GET['page'])
+    && $_GET['page'] === 'logout'
+) {
+
+    $controller->logout();
 
 
 /* =========================

@@ -3,6 +3,11 @@
    ========================= */
 
 
+/* =========================
+   SUCCESS / LOGOUT TOAST
+   ========================= */
+
+
 /* -------------------------
    CLOSE SUCCESS TOAST
    ------------------------- */
@@ -17,12 +22,16 @@ function closeToast() {
     }
 
 
-    // Start slide-out animation
+    /* -------------------------
+       START SLIDE-OUT ANIMATION
+       ------------------------- */
 
     toast.classList.add("hide");
 
 
-    // Remove toast after animation
+    /* -------------------------
+       REMOVE TOAST
+       ------------------------- */
 
     setTimeout(() => {
 
@@ -47,7 +56,9 @@ document.addEventListener(
             );
 
 
-        // No toast on this page
+        /* -------------------------
+           NO TOAST ON THIS PAGE
+           ------------------------- */
 
         if (!toast) {
             return;
@@ -55,12 +66,17 @@ document.addEventListener(
 
 
         /* -------------------------
-           REMOVE SUCCESS FROM URL
+           REMOVE TOAST PARAMETERS
+           FROM URL
            ------------------------- */
 
         const url =
             new URL(window.location.href);
 
+
+        /* -------------------------
+           REMOVE SUCCESS PARAMETER
+           ------------------------- */
 
         if (
             url.searchParams.has("success")
@@ -70,15 +86,34 @@ document.addEventListener(
                 "success"
             );
 
+        }
 
-            window.history.replaceState(
-                {},
-                document.title,
-                url.pathname +
-                url.search
+
+        /* -------------------------
+           REMOVE LOGOUT PARAMETER
+           ------------------------- */
+
+        if (
+            url.searchParams.has("logout")
+        ) {
+
+            url.searchParams.delete(
+                "logout"
             );
 
         }
+
+
+        /* -------------------------
+           UPDATE URL
+           ------------------------- */
+
+        window.history.replaceState(
+            {},
+            document.title,
+            url.pathname +
+            url.search
+        );
 
 
         /* -------------------------
@@ -197,3 +232,102 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================
+   PROFILE DROPDOWN
+   ========================= */
+
+const profileButton =
+    document.getElementById(
+        "profileButton"
+    );
+
+const profileDropdown =
+    document.getElementById(
+        "profileDropdown"
+    );
+
+
+if (
+    profileButton &&
+    profileDropdown
+) {
+
+
+    /* -------------------------
+       TOGGLE PROFILE
+       ------------------------- */
+
+    profileButton.addEventListener(
+        "click",
+        function (event) {
+
+            event.stopPropagation();
+
+
+            profileDropdown.classList.toggle(
+                "show"
+            );
+
+
+            profileButton.classList.toggle(
+                "active"
+            );
+
+
+            const isOpen =
+                profileDropdown.classList.contains(
+                    "show"
+                );
+
+
+            profileButton.setAttribute(
+                "aria-expanded",
+                isOpen
+                    ? "true"
+                    : "false"
+            );
+
+        }
+    );
+
+
+    /* -------------------------
+       CLOSE WHEN CLICKING OUTSIDE
+       ------------------------- */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !profileDropdown.contains(
+                    event.target
+                ) &&
+                !profileButton.contains(
+                    event.target
+                )
+            ) {
+
+                profileDropdown.classList.remove(
+                    "show"
+                );
+
+
+                profileButton.classList.remove(
+                    "active"
+                );
+
+
+                profileButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        }
+    );
+
+}
