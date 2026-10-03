@@ -15,6 +15,8 @@ class ToolController
 
         $tools = $toolModel->getAllTools();
 
+        $categories = $toolModel->getCategories();
+
         require_once __DIR__ . '/../views/home.php';
     }
 
@@ -96,7 +98,29 @@ class ToolController
 
         $tools = $toolModel->searchTools($keyword);
 
+        $categories = $toolModel->getCategories();
+
         $isSearch = true;
+
+        require_once __DIR__ . '/../views/home.php';
+    }
+
+
+    /* =========================
+       FILTER BY CATEGORY
+       ========================= */
+
+    public function category()
+    {
+        $category = trim($_GET['category'] ?? '');
+
+        $toolModel = new Tool($GLOBALS['conn']);
+
+        $tools = $toolModel->getToolsByCategory($category);
+
+        $categories = $toolModel->getCategories();
+
+        $isCategoryFilter = true;
 
         require_once __DIR__ . '/../views/home.php';
     }
