@@ -4,6 +4,11 @@ class Tool
 {
     private $conn;
 
+
+    /* =========================
+       CONSTRUCTOR
+       ========================= */
+
     public function __construct($conn)
     {
         $this->conn = $conn;
@@ -20,7 +25,10 @@ class Tool
 
         $stmt = $this->conn->prepare($sql);
 
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param(
+            "i",
+            $id
+        );
 
         $stmt->execute();
 
@@ -67,7 +75,8 @@ class Tool
 
     public function addTool($name, $category, $description, $url)
     {
-        $sql = "INSERT INTO tools (name, category, description, url)
+        $sql = "INSERT INTO tools
+                (name, category, description, url)
                 VALUES (?, ?, ?, ?)";
 
         $stmt = $this->conn->prepare($sql);
@@ -81,6 +90,34 @@ class Tool
         );
 
         return $stmt->execute();
+    }
+
+
+    /* =========================
+       CHECK DUPLICATE TOOL
+       ========================= */
+
+    public function toolExists($name, $category)
+    {
+        $sql = "SELECT id
+                FROM tools
+                WHERE name = ?
+                AND category = ?
+                LIMIT 1";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bind_param(
+            "ss",
+            $name,
+            $category
+        );
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->num_rows > 0;
     }
 
 
