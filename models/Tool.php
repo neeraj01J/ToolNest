@@ -31,4 +31,22 @@ class Tool
 
     return $result->fetch_all(MYSQLI_ASSOC);
 }
+
+public function addTool($name, $category, $description, $url)
+{
+    $sql = "INSERT INTO tools (name, category, description, url)
+            VALUES (?, ?, ?, ?)";
+
+    $stmt = $this->conn->prepare($sql);
+
+    $stmt->bind_param(
+        "ssss",
+        $name,
+        $category,
+        $description,
+        $url
+    );
+
+    return $stmt->execute();
+}
 }

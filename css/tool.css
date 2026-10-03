@@ -1,0 +1,124 @@
+
+/* -------------------------
+   TOOL DETAILS PAGE
+   ------------------------- */
+
+/* Main Details Container */
+
+.tool-details {
+    max-width: 850px;
+    margin: 70px auto;
+    padding: 45px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Tool Title */
+
+.tool-details h1 {
+    font-size: 42px;
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+
+    color: #111827;
+}
+
+/* Tool Category */
+
+.tool-details .tool-category {
+    display: inline-block;
+
+    padding: 6px 12px;
+    margin-bottom: 22px;
+
+    background: #eef2ff;
+    color: #2563eb;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Tool Description */
+
+.tool-details p {
+    color: #4b5563;
+
+    line-height: 1.8;
+    font-size: 17px;
+
+    margin: 15px 0 30px;
+}
+
+/* Visit Website Button */
+
+.tool-details .share-button {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+.tool-details .share-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Back to Tools Link */
+
+.back-to-tools {
+    display: inline-block;
+
+    margin-top: 28px;
+
+    color: #2563eb;
+
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-to-tools:hover {
+    text-decoration: underline;
+}
+
+/* Tool Not Found */
+
+.tool-not-found {
+    text-align: center;
+}
+
+/* Mobile Responsive Design */
+
+@media (max-width: 768px) {
+
+    .tool-details {
+        margin: 30px 16px;
+        padding: 28px 22px;
+    }
+
+    .tool-details h1 {
+        font-size: 32px;
+    }
+
+    .tool-details p {
+        font-size: 16px;
+    }
+
+}
