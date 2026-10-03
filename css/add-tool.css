@@ -1,73 +1,468 @@
-
-/* -------------------------
+/* =========================
    ADD TOOL PAGE
-   ------------------------- */
+   ========================= */
 
 .add-tool-container {
     max-width: 700px;
+
     margin: 60px auto;
+
     padding: 40px 20px;
 }
 
+
+/* =========================
+   HEADING
+   ========================= */
+
 .add-tool-container h1 {
     font-size: 36px;
+
     margin-bottom: 10px;
 }
 
+
+/* =========================
+   INTRO TEXT
+   ========================= */
+
 .form-intro {
     color: #666;
+
     margin-bottom: 30px;
 }
+
+
+/* =========================
+   FORM GROUP
+   ========================= */
 
 .form-group {
     margin-bottom: 22px;
 }
 
+
+/* =========================
+   LABEL
+   ========================= */
+
 .form-group label {
     display: block;
+
     margin-bottom: 8px;
+
     font-weight: bold;
 }
 
+
+/* =========================
+   INPUT + TEXTAREA
+   ========================= */
+
 .form-group input,
 .form-group textarea {
+
     width: 100%;
+
     box-sizing: border-box;
 
     padding: 13px;
 
     border: 1px solid #d1d5db;
+
     border-radius: 8px;
 
     font-size: 15px;
+
     font-family: inherit;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+/* =========================
+   TEXTAREA
+   ========================= */
 
 .form-group textarea {
     resize: vertical;
 }
 
+
+/* =========================
+   INPUT FOCUS
+   ========================= */
+
 .form-group input:focus,
 .form-group textarea:focus {
+
     outline: none;
+
     border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(
+            37,
+            99,
+            235,
+            0.10
+        );
 }
 
+
+/* =========================
+   SUBMIT BUTTON
+   ========================= */
+
 .submit-button {
+
     padding: 13px 24px;
 
     border: none;
+
     border-radius: 8px;
 
     background: #111827;
+
     color: white;
 
     font-size: 15px;
+
     font-weight: bold;
 
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+
 .submit-button:hover {
+
     background: #374151;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+
+.submit-button:active {
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   DUPLICATE ERROR TOAST
+   ========================= */
+
+.error-toast {
+
+    position: fixed;
+
+    top: 24px;
+
+    right: 24px;
+
+    width: 390px;
+
+    max-width:
+        calc(100vw - 30px);
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 16px 17px;
+
+    background: #ffffff;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.14
+        );
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+    animation:
+        toastSlideIn
+        0.35s ease forwards;
+}
+
+
+/* =========================
+   TOAST ICON
+   ========================= */
+
+.error-toast-icon {
+
+    flex-shrink: 0;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   TOAST CONTENT
+   ========================= */
+
+.error-toast-content {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.error-toast-content strong {
+
+    color: #111827;
+
+    font-size: 14px;
+
+    line-height: 1.3;
+}
+
+
+.error-toast-content span {
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   TOAST CLOSE BUTTON
+   ========================= */
+
+.error-toast-close {
+
+    flex-shrink: 0;
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #9ca3af;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.error-toast-close:hover {
+
+    background: #f3f4f6;
+
+    color: #374151;
+}
+
+
+/* =========================
+   TOAST PROGRESS BAR
+   ========================= */
+
+.error-toast-progress {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 3px;
+
+    background: #ef4444;
+
+    transform-origin: left;
+
+    animation:
+        toastProgress
+        4.5s linear forwards;
+}
+
+
+/* =========================
+   TOAST ENTER ANIMATION
+   ========================= */
+
+@keyframes toastSlideIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(35px);
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================
+   PROGRESS ANIMATION
+   ========================= */
+
+@keyframes toastProgress {
+
+    from {
+
+        transform:
+            scaleX(1);
+    }
+
+
+    to {
+
+        transform:
+            scaleX(0);
+    }
+}
+
+
+/* =========================
+   TOAST EXIT
+   ========================= */
+
+.error-toast.hide {
+
+    animation:
+        toastSlideOut
+        0.35s ease forwards;
+}
+
+
+@keyframes toastSlideOut {
+
+    from {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translateX(35px);
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .add-tool-container {
+
+        width: 92%;
+
+        margin: 35px auto;
+
+        padding: 25px 0;
+    }
+
+
+    .add-tool-container h1 {
+
+        font-size: 30px;
+    }
+
+
+    .error-toast {
+
+        top: 15px;
+
+        right: 15px;
+
+        left: 15px;
+
+        width: auto;
+
+        max-width: none;
+    }
 }

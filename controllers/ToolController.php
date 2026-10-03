@@ -50,17 +50,50 @@ class ToolController
             $description = trim($_POST['description'] ?? '');
             $url = trim($_POST['url'] ?? '');
 
+
+            /* -------------------------
+               VALIDATE REQUIRED FIELDS
+               ------------------------- */
+
             if (
                 empty($name) ||
                 empty($category) ||
                 empty($description) ||
                 empty($url)
             ) {
-                echo "All fields are required.";
+
+                $error = "All fields are required.";
+
+                require_once __DIR__ . '/../views/add-tool.php';
+
                 exit;
             }
 
+
+            /* -------------------------
+               CREATE MODEL
+               ------------------------- */
+
             $toolModel = new Tool($GLOBALS['conn']);
+
+
+            /* -------------------------
+               CHECK DUPLICATE TOOL
+               ------------------------- */
+
+            if ($toolModel->toolExists($name, $category)) {
+
+                $error = "This tool already exists in this category.";
+
+                require_once __DIR__ . '/../views/add-tool.php';
+
+                exit;
+            }
+
+
+            /* -------------------------
+               ADD TOOL
+               ------------------------- */
 
             $success = $toolModel->addTool(
                 $name,
@@ -69,18 +102,27 @@ class ToolController
                 $url
             );
 
+
+            /* -------------------------
+               RESULT
+               ------------------------- */
+
             if ($success) {
 
                 header("Location: index.php?success=1");
+
                 exit;
 
             } else {
 
-                echo "Failed to add the tool.";
-                exit;
+                $error = "Failed to add the tool.";
 
+                require_once __DIR__ . '/../views/add-tool.php';
+
+                exit;
             }
         }
+
 
         require_once __DIR__ . '/../views/add-tool.php';
     }
