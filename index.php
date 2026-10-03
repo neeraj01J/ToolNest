@@ -1,4 +1,3 @@
-
 <?php
 
 require_once __DIR__ . '/controllers/ToolController.php';
@@ -12,6 +11,10 @@ if (isset($_GET['page']) && $_GET['page'] === 'tool') {
 } elseif (isset($_GET['page']) && $_GET['page'] === 'add-tool') {
 
     $controller->addTool();
+
+} elseif (isset($_GET['page']) && $_GET['page'] === 'search') {
+
+    $controller->search();
 
 } else {
 
