@@ -1,178 +1,86 @@
-<?php
+<!DOCTYPE html>
+<html>
 
-class Tool
-{
-    private $conn;
+<head>
 
+    <link rel="stylesheet" href="/ToolNest/css/global.css">
+    <link rel="stylesheet" href="/ToolNest/css/tool.css">
+</head>
 
-    /* =========================
-       CONSTRUCTOR
-       ========================= */
+<body>
 
-    public function __construct($conn)
-    {
-        $this->conn = $conn;
-    }
+    <nav class="navbar">
 
+        <div class="logo">
+            ToolNest
+        </div>
 
-    /* =========================
-       GET TOOL BY ID
-       ========================= */
+        <div class="nav-links">
 
-    public function getToolById($id)
-    {
-        $sql = "SELECT * FROM tools WHERE id = ?";
+            <a href="index.php">
+             Home
+           </a>
 
-        $stmt = $this->conn->prepare($sql);
+            <a href="#">
+                Tools
+            </a>
 
-        $stmt->bind_param(
-            "i",
-            $id
-        );
+            <a href="#">
+                About
+            </a>
 
-        $stmt->execute();
+            <a href="#">
+                Login
+            </a>
 
-        $result = $stmt->get_result();
+        </div>
 
-        return $result->fetch_assoc();
-    }
-
-
-    /* =========================
-       GET ALL TOOLS
-       ========================= */
-
-    public function getAllTools()
-    {
-        $sql = "SELECT * FROM tools ORDER BY id DESC";
-
-        $result = $this->conn->query($sql);
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+    </nav>
 
 
-    /* =========================
-       GET CATEGORIES
-       ========================= */
+    <main class="tool-details">
 
-    public function getCategories()
-    {
-        $sql = "SELECT DISTINCT category
-                FROM tools
-                WHERE category != ''
-                ORDER BY category ASC";
+        <?php if ($tool): ?>
 
-        $result = $this->conn->query($sql);
+            <h1>
+               <?php echo htmlspecialchars($tool['name'], ENT_QUOTES, 'UTF-8'); ?>
+            </h1>
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+            <span class="tool-category">
+                <?php echo htmlspecialchars($tool['category'], ENT_QUOTES, 'UTF-8'); ?>
+            </span>
 
+            <p>
+          <?php echo nl2br(htmlspecialchars($tool['description'], ENT_QUOTES, 'UTF-8')); ?>            </p>
 
-    /* =========================
-       ADD TOOL
-       ========================= */
+           <a
+              href="<?php echo htmlspecialchars($tool['url'], ENT_QUOTES, 'UTF-8'); ?>"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="share-button">
+           Visit Website →
+         </a>
 
-    public function addTool($name, $category, $description, $url)
-    {
-        $sql = "INSERT INTO tools
-                (name, category, description, url)
-                VALUES (?, ?, ?, ?)";
+        <?php else: ?>
 
-        $stmt = $this->conn->prepare($sql);
+            <h1>
+                Tool Not Found
+            </h1>
 
-        $stmt->bind_param(
-            "ssss",
-            $name,
-            $category,
-            $description,
-            $url
-        );
+            <p>
+                The requested tool does not exist.
+            </p>
 
-        return $stmt->execute();
-    }
+        <?php endif; ?>
 
+        <br><br>
 
-    /* =========================
-       CHECK DUPLICATE TOOL
-       ========================= */
+       <a href="index.php" class="back-to-tools">
+    ← Back to Tools
+      </a>
 
-    public function toolExists($name, $category)
-    {
-        $sql = "SELECT id
-                FROM tools
-                WHERE name = ?
-                AND category = ?
-                LIMIT 1";
+    </main>
 
-        $stmt = $this->conn->prepare($sql);
+</body>
 
-        $stmt->bind_param(
-            "ss",
-            $name,
-            $category
-        );
-
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        return $result->num_rows > 0;
-    }
-
-
-    /* =========================
-       SEARCH TOOLS
-       ========================= */
-
-    public function searchTools($keyword)
-    {
-        $sql = "SELECT * FROM tools
-                WHERE name LIKE ?
-                   OR category LIKE ?
-                   OR description LIKE ?
-                ORDER BY id DESC";
-
-        $stmt = $this->conn->prepare($sql);
-
-        $searchKeyword = "%" . $keyword . "%";
-
-        $stmt->bind_param(
-            "sss",
-            $searchKeyword,
-            $searchKeyword,
-            $searchKeyword
-        );
-
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-
-    /* =========================
-       FILTER TOOLS BY CATEGORY
-       ========================= */
-
-    public function getToolsByCategory($category)
-    {
-        $sql = "SELECT * FROM tools
-                WHERE category = ?
-                ORDER BY id DESC";
-
-        $stmt = $this->conn->prepare($sql);
-
-        $stmt->bind_param(
-            "s",
-            $category
-        );
-
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-}
+</html>
