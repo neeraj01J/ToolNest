@@ -166,4 +166,14 @@ class ToolController
 
         require_once __DIR__ . '/../views/home.php';
     }
+
+
+    /* =========================
+       ABOUT PAGE
+       ========================= */
+
+    public function about()
+    {
+        require_once __DIR__ . '/../views/about.php';
+    }
 }
