@@ -110,23 +110,40 @@
             </p>
 
 
-            <!-- Search -->
+            <!-- =========================
+                 SEARCH
+                 ========================= -->
 
-            <div class="search-box">
+            <form
+                action="index.php"
+                method="GET"
+                class="search-box"
+            >
+
+                <input
+                    type="hidden"
+                    name="page"
+                    value="search"
+                >
 
                 <input
                     type="text"
+                    name="q"
                     placeholder="Search for a tool..."
+                    autocomplete="off"
+                    value="<?php echo isset($keyword) ? htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8') : ''; ?>"
                 >
 
-                <button type="button">
+                <button type="submit">
                     Search
                 </button>
 
-            </div>
+            </form>
 
 
-            <!-- Share Tool -->
+            <!-- =========================
+                 SHARE TOOL
+                 ========================= -->
 
             <a
                 href="index.php?page=add-tool"
@@ -146,63 +163,91 @@
 
     <section class="tools-section">
 
-        <h2>
-            Explore Tools
-        </h2>
+        <?php if (isset($isSearch) && $isSearch): ?>
 
+            <h2>
+                Search Results for
+                "<?php echo htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8'); ?>"
+            </h2>
+
+        <?php else: ?>
+
+            <h2>
+                Explore Tools
+            </h2>
+
+        <?php endif; ?>
+
+
+        <!-- =========================
+             TOOL GRID
+             ========================= -->
 
         <div class="tool-grid">
 
-            <?php foreach ($tools as $tool): ?>
+            <?php if (empty($tools)): ?>
 
-                <div class="tool-card">
+                <p>
+                    No tools found for
+                    "<?php echo htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8'); ?>"
+                </p>
 
-                    <h3>
-                        <?php
-                        echo htmlspecialchars(
-                            $tool['name'],
-                            ENT_QUOTES,
-                            'UTF-8'
-                        );
-                        ?>
-                    </h3>
+            <?php else: ?>
 
+                <?php foreach ($tools as $tool): ?>
 
-                    <span class="tool-category">
+                    <div class="tool-card">
 
-                        <?php
-                        echo htmlspecialchars(
-                            $tool['category'],
-                            ENT_QUOTES,
-                            'UTF-8'
-                        );
-                        ?>
+                        <h3>
 
-                    </span>
+                            <?php
+                            echo htmlspecialchars(
+                                $tool['name'],
+                                ENT_QUOTES,
+                                'UTF-8'
+                            );
+                            ?>
+
+                        </h3>
 
 
-                    <p>
+                        <span class="tool-category">
 
-                        <?php
-                        echo htmlspecialchars(
-                            $tool['description'],
-                            ENT_QUOTES,
-                            'UTF-8'
-                        );
-                        ?>
+                            <?php
+                            echo htmlspecialchars(
+                                $tool['category'],
+                                ENT_QUOTES,
+                                'UTF-8'
+                            );
+                            ?>
 
-                    </p>
+                        </span>
 
 
-                    <a
-                        href="index.php?page=tool&id=<?php echo $tool['id']; ?>"
-                    >
-                        View Details →
-                    </a>
+                        <p>
 
-                </div>
+                            <?php
+                            echo htmlspecialchars(
+                                $tool['description'],
+                                ENT_QUOTES,
+                                'UTF-8'
+                            );
+                            ?>
 
-            <?php endforeach; ?>
+                        </p>
+
+
+                        <a
+                            href="index.php?page=tool&id=<?php echo $tool['id']; ?>"
+                        >
+                            View Details →
+                        </a>
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            <?php endif; ?>
 
         </div>
 

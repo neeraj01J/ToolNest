@@ -5,14 +5,24 @@ require_once __DIR__ . '/../models/Tool.php';
 
 class ToolController
 {
+    /* =========================
+       HOME PAGE
+       ========================= */
+
     public function home()
-{
-    $toolModel = new Tool($GLOBALS['conn']);
+    {
+        $toolModel = new Tool($GLOBALS['conn']);
 
-    $tools = $toolModel->getAllTools();
+        $tools = $toolModel->getAllTools();
 
-    require_once __DIR__ . '/../views/home.php';
-}
+        require_once __DIR__ . '/../views/home.php';
+    }
+
+
+    /* =========================
+       TOOL DETAILS
+       ========================= */
+
     public function tool()
     {
         $id = $_GET['id'] ?? null;
@@ -23,47 +33,71 @@ class ToolController
 
         require_once __DIR__ . '/../views/tool.php';
     }
-   public function addTool()
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $name = trim($_POST['name'] ?? '');
-        $category = trim($_POST['category'] ?? '');
-        $description = trim($_POST['description'] ?? '');
-        $url = trim($_POST['url'] ?? '');
 
-        if (
-            empty($name) ||
-            empty($category) ||
-            empty($description) ||
-            empty($url)
-        ) {
-            echo "All fields are required.";
-            exit;
+    /* =========================
+       ADD TOOL
+       ========================= */
+
+    public function addTool()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $name = trim($_POST['name'] ?? '');
+            $category = trim($_POST['category'] ?? '');
+            $description = trim($_POST['description'] ?? '');
+            $url = trim($_POST['url'] ?? '');
+
+            if (
+                empty($name) ||
+                empty($category) ||
+                empty($description) ||
+                empty($url)
+            ) {
+                echo "All fields are required.";
+                exit;
+            }
+
+            $toolModel = new Tool($GLOBALS['conn']);
+
+            $success = $toolModel->addTool(
+                $name,
+                $category,
+                $description,
+                $url
+            );
+
+            if ($success) {
+
+                header("Location: index.php?success=1");
+                exit;
+
+            } else {
+
+                echo "Failed to add the tool.";
+                exit;
+
+            }
         }
+
+        require_once __DIR__ . '/../views/add-tool.php';
+    }
+
+
+    /* =========================
+       SEARCH TOOLS
+       ========================= */
+
+    public function search()
+    {
+        $keyword = trim($_GET['q'] ?? '');
 
         $toolModel = new Tool($GLOBALS['conn']);
 
-        $success = $toolModel->addTool(
-            $name,
-            $category,
-            $description,
-            $url
-        );
+        $tools = $toolModel->searchTools($keyword);
 
-        if ($success) {
+        $isSearch = true;
 
-            header("Location: index.php?success=1");
-            exit;
-
-        } else {
-
-            echo "Failed to add the tool.";
-            exit;
-
-        }
+        require_once __DIR__ . '/../views/home.php';
     }
-
-    require_once __DIR__ . '/../views/add-tool.php';
-}
 }

@@ -9,6 +9,11 @@ class Tool
         $this->conn = $conn;
     }
 
+
+    /* =========================
+       GET TOOL BY ID
+       ========================= */
+
     public function getToolById($id)
     {
         $sql = "SELECT * FROM tools WHERE id = ?";
@@ -23,30 +28,72 @@ class Tool
 
         return $result->fetch_assoc();
     }
+
+
+    /* =========================
+       GET ALL TOOLS
+       ========================= */
+
     public function getAllTools()
-{
-    $sql = "SELECT * FROM tools ORDER BY id DESC";
+    {
+        $sql = "SELECT * FROM tools ORDER BY id DESC";
 
-    $result = $this->conn->query($sql);
+        $result = $this->conn->query($sql);
 
-    return $result->fetch_all(MYSQLI_ASSOC);
-}
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
-public function addTool($name, $category, $description, $url)
-{
-    $sql = "INSERT INTO tools (name, category, description, url)
-            VALUES (?, ?, ?, ?)";
 
-    $stmt = $this->conn->prepare($sql);
+    /* =========================
+       ADD TOOL
+       ========================= */
 
-    $stmt->bind_param(
-        "ssss",
-        $name,
-        $category,
-        $description,
-        $url
-    );
+    public function addTool($name, $category, $description, $url)
+    {
+        $sql = "INSERT INTO tools (name, category, description, url)
+                VALUES (?, ?, ?, ?)";
 
-    return $stmt->execute();
-}
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bind_param(
+            "ssss",
+            $name,
+            $category,
+            $description,
+            $url
+        );
+
+        return $stmt->execute();
+    }
+
+
+    /* =========================
+       SEARCH TOOLS
+       ========================= */
+
+    public function searchTools($keyword)
+    {
+        $sql = "SELECT * FROM tools
+                WHERE name LIKE ?
+                   OR category LIKE ?
+                   OR description LIKE ?
+                ORDER BY id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $searchKeyword = "%" . $keyword . "%";
+
+        $stmt->bind_param(
+            "sss",
+            $searchKeyword,
+            $searchKeyword,
+            $searchKeyword
+        );
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
